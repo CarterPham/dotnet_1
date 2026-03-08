@@ -7,16 +7,16 @@ on:
 
 jobs:
   run-ci:
-    # Points to your central DevOps repo
-    uses: CarterPham/Template.git/.github/workflows/dotnet_ci.yml@main
-    
+    # REMOVE THE '.git' HERE
+    uses: CarterPham/Template/.github/workflows/dotnet_ci.yml@main
     with:
       project_path: 'SingleFileConsoleApp.csproj'
       project_name: 'dotnet_1'
 
   run-cd:
     needs: run-ci
-    uses: CarterPham/Template.git/.github/workflows/dotnet_cd.yml@main
+    # REMOVE THE '.git' HERE TOO
+    uses: CarterPham/Template/.github/workflows/dotnet_cd.yml@main
     with:
       project_name: 'dotnet_1'
     secrets:
