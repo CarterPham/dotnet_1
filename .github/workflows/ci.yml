@@ -8,15 +8,16 @@ on:
 jobs:
   run-ci:
     # Points to your central DevOps repo
-    uses: your-github-username/devops-templates/.github/workflows/dotnet_ci.yml@master
+    uses: CarterPham/Template.git/.github/workflows/Dotnet_ci.yml@master
+    
     with:
-      project_path: './src/ProjectA.csproj'
-      project_name: 'ProjectA-Package'
+      project_path: 'SingleFileConsoleApp.csproj'
+      project_name: 'dotnet_1'
 
   run-cd:
     needs: run-ci
-    uses: your-github-username/devops-templates/.github/workflows/dotnet_cd.yml@master
+    uses: CarterPham/Template.git/.github/workflows/Dotnet_cd.yml@master
     with:
-      project_name: 'ProjectA-Package'
+      project_name: 'dotnet_1'
     secrets:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
