@@ -8,14 +8,14 @@ on:
 jobs:
   run-ci:
     uses: CarterPham/Template/.github/workflows/dotnet_ci.yml@main
-    # with:
-    #   project_path: 'SingleFileConsoleApp.csproj'
-    #   project_name: 'dotnet_1'
+    with:
+      project_path: 'SingleFileConsoleApp.csproj'
+      project_name: 'dotnet_1'
 
   run-cd:
     needs: run-ci
     uses: CarterPham/Template/.github/workflows/dotnet_cd.yml@main
-    # with:
-    #   project_name: 'dotnet_1'
-    # secrets:
-    #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    with:
+      project_name: 'dotnet_1'
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
