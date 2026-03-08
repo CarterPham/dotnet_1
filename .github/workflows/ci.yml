@@ -7,7 +7,8 @@ on:
 
 jobs:
   run-ci:
-    # REMOVE THE '.git' HERE
+    # 1. Removed .git 
+    # 2. Changed 'Dotnet_ci' to 'dotnet_ci' to match your screenshot
     uses: CarterPham/Template/.github/workflows/dotnet_ci.yml@main
     with:
       project_path: 'SingleFileConsoleApp.csproj'
@@ -15,7 +16,7 @@ jobs:
 
   run-cd:
     needs: run-ci
-    # REMOVE THE '.git' HERE TOO
+    # 3. Changed 'Dotnet_cd' to 'dotnet_cd' to match your screenshot
     uses: CarterPham/Template/.github/workflows/dotnet_cd.yml@main
     with:
       project_name: 'dotnet_1'
