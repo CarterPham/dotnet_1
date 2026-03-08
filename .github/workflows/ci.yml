@@ -1,0 +1,22 @@
+name: dotnet_1 CI/CD
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+jobs:
+  run-ci:
+    # Points to your central DevOps repo
+    uses: your-github-username/devops-templates/.github/workflows/dotnet_ci.yml@master
+    with:
+      project_path: './src/ProjectA.csproj'
+      project_name: 'ProjectA-Package'
+
+  run-cd:
+    needs: run-ci
+    uses: your-github-username/devops-templates/.github/workflows/dotnet_cd.yml@master
+    with:
+      project_name: 'ProjectA-Package'
+    secrets:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
