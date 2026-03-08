@@ -7,18 +7,15 @@ on:
 
 jobs:
   run-ci:
-    # 1. Removed .git 
-    # 2. Changed 'Dotnet_ci' to 'dotnet_ci' to match your screenshot
     uses: CarterPham/Template/.github/workflows/dotnet_ci.yml@main
-    with:
-      project_path: 'SingleFileConsoleApp.csproj'
-      project_name: 'dotnet_1'
+    # with:
+    #   project_path: 'SingleFileConsoleApp.csproj'
+    #   project_name: 'dotnet_1'
 
   run-cd:
     needs: run-ci
-    # 3. Changed 'Dotnet_cd' to 'dotnet_cd' to match your screenshot
     uses: CarterPham/Template/.github/workflows/dotnet_cd.yml@main
-    with:
-      project_name: 'dotnet_1'
-    secrets:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    # with:
+    #   project_name: 'dotnet_1'
+    # secrets:
+    #   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
